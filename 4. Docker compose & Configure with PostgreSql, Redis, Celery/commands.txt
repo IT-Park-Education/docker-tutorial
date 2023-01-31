@@ -1,0 +1,11 @@
+LESSON#4
+docker-compose build
+docker-compose run --rm app django-admin startproject core .
+docker-compose up
+docker-compose run django_app sh -c "django-admin startapp app ."
+docker exec -it django_app sh
+
+#Run Celery Task
+    python manage.py shell
+    from newapp.tasks import add
+    add.delay(2, 5)
