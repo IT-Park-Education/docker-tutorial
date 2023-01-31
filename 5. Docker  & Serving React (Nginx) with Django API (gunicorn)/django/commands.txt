@@ -1,0 +1,14 @@
+LESSON#5
+docker-compose build
+docker-compose run --rm app django-admin startproject core .
+docker-compose up
+docker-compose run django_app sh -c "django-admin startapp app ."
+docker exec -it django_app sh
+
+py manage.py makemigrations --dry-run --verbosity 3
+py manage.py runserver
+py manage.py createsuperuser 
+pip install coverage
+coverage run --omit='*/venv/*' manage.py test
+coverage html
+pip install djangorestframework
